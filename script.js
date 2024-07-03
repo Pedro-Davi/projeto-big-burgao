@@ -11,13 +11,11 @@ const addressWarn = document.getElementById("address-warn")
 
 let cart = []
 
-//Abrir Modal
 cartBtn.addEventListener("click", function() {
     updateCartModal()
     cartModal.style.display = "flex"
 })
 
-//Fechar Modal ao clicar fora
 cartModal.addEventListener("click", function(event) {
     if(event.target === cartModal){
         cartModal.style.display = "none"
@@ -35,18 +33,16 @@ menu.addEventListener("click", function(event) {
         const name = parentBtn.getAttribute("data-name")
         const price = parseFloat(parentBtn.getAttribute("data-price"))
         
-        //ADD carrinho
         addToCart(name, price)
     }
 })
 
 
-//função add carrinho
 function addToCart(name, price){
     const existingItem = cart.find(item => item.name === name)
 
     if(existingItem){
-        //Se o item existir add +1 apenas na quantitade
+       
         existingItem.quantity += 1
     }
 
@@ -102,7 +98,7 @@ function updateCartModal() {
     cartCounter.innerHTML = cart.length
 }
 
-//function para remover item do cart
+
 
 cartItemsContainer.addEventListener("click", function(event) {
     if(event.target.classList.contains("remove-btn")){
@@ -148,9 +144,9 @@ checkoutBtn.addEventListener("click", function() {
             text: "Ops o Big Burgão está fechado!",
             duration: 3000,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true, 
             style: {
                 background: "#ef4444",
             },
@@ -182,7 +178,6 @@ checkoutBtn.addEventListener("click", function() {
     updateCartModal()
 })
 
-//function para verificar hora e manipular card horario
 
 function checkBigBurguerOpen() {
     const data = new Date()
